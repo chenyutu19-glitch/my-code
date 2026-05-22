@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄凯轩 - 个人简历</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        main: '#234E52',
+                        mild: '#E8EEF0',
+                        textDark: '#202931',
+                    },
+                    fontFamily: {
+                        sans: ['Microsoft YaHei', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .title-border {
+                @apply border-l-4 border-main pl-3 font-bold text-lg text-textDark;
+            }
+            .panel-shadow {
+                box-shadow: 0 1px 10px rgba(35, 78, 82, 0.12);
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #F8FAFB;
+        }
+    </style>
+</head>
+<body class="font-sans text-textDark">
+    <div class="max-w-md mx-auto bg-white min-h-screen">
+        <!-- 顶部头部 深色商务风格 -->
+        <div class="h-44 bg-gradient-to-r from-main to-teal-600 flex flex-col items-center justify-center relative">
+            <h1 class="text-4xl font-bold text-white tracking-wide">个人简历</h1>
+            <p class="text-white/80 text-sm mt-3">踏实做事 真诚服务</p>
+            <div class="absolute bottom-0 w-full h-8 bg-white rounded-t-3xl"></div>
+        </div>
+
+        <!-- 基础信息 -->
+        <div class="px-5 -mt-4 relative z-10">
+            <div class="rounded-xl panel-shadow bg-white p-5 flex items-center gap-5">
+                <div class="w-28 h-28 rounded-xl overflow-hidden border-2 border-mild flex-shrink-0">
+                    <img src="./avatar.jpg" alt="黄凯轩" class="w-full h-full object-cover"
+                    onerror="this.src='https://picsum.photos/200/200'">
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold">黄凯轩</h2>
+                    <p class="text-gray-500 mt-1">年龄：19岁</p>
+                    <p class="text-main font-medium mt-2">求职意向：电商客服、客户服务、服务助理</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 联系方式 -->
+        <div class="mt-5 px-5">
+            <div class="title-border mb-3">联系方式</div>
+            <div class="rounded-xl panel-shadow p-4 space-y-3">
+                <div class="flex items-center gap-3">
+                    <i class="fa fa-mobile text-main text-xl w-6 text-center"></i>
+                    <span>手机号码：</span>
+                    <span class="flex-1">自行填写</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fa fa-envelope text-main text-lg w-6 text-center"></i>
+                    <span>电子邮箱：</span>
+                    <span class="flex-1">自行填写</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fa fa-home text-main text-lg w-6 text-center"></i>
+                    <span>居住地址：</span>
+                    <span class="flex-1">广东省佛山市</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 教育背景 -->
+        <div class="mt-5 px-5">
+            <div class="title-border mb-3">教育背景</div>
+            <div class="rounded-xl panel-shadow p-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-lg">顺德职业技术大学</span>
+                    <span class="text-sm text-gray-500">在读</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-3">大专学历</p>
+                <p class="text-sm leading-relaxed text-gray-700">
+                    主修客户服务管理、电商基础、网络沟通技巧、办公自动化、市场营销等课程，掌握客服岗位基础专业知识与办公操作技能。
+                </p>
+            </div>
+        </div>
+
+        <!-- 实践工作经历 -->
+        <div class="mt-5 px-5">
+            <div class="title-border mb-3">实践工作经历</div>
+            <div class="rounded-xl panel-shadow p-4 space-y-5">
+                <div>
+                    <div class="flex justify-between font-bold mb-1">
+                        <span>多平台客服实习</span>
+                        <span class="text-sm text-gray-500">服务岗位</span>
+                    </div>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        拥有多渠道平台客服工作经验，日常负责线上客户咨询接待、产品疑问解答、订单核对跟进，妥善处理退换货、投诉纠纷等售后问题。熟悉不同平台沟通规则，能够灵活应对各类客户诉求，维护店铺口碑，积累了充足的客户对接实战经验。
+                    </p>
+                </div>
+                <div class="border-t border-gray-100 pt-4">
+                    <div class="flex justify-between font-bold mb-1">
+                        <span>日常社会实践</span>
+                        <span class="text-sm text-gray-500">综合岗位</span>
+                    </div>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        课余参与各类社会实践工作，适应不同工作节奏，具备良好的执行力与团队配合意识，做事稳重踏实，能够服从安排高效完成各项本职工作。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 在校经历 -->
+        <div class="mt-5 px-5">
+            <div class="title-border mb-3">在校经历</div>
+            <div class="rounded-xl panel-shadow p-4">
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    积极参与班级集体事务与校园活动，主动配合师生开展各项工作。日常善于沟通交流，懂得换位思考，在集体协作中锻炼了表达能力、应变能力与处事责任心，养成良好的处事习惯。
+                </p>
+            </div>
+        </div>
+
+        <!-- 技能证书 -->
+        <div class="mt-5 px-5">
+            <div class="title-border mb-3">技能特长</div>
+            <div class="rounded-xl panel-shadow p-4 grid grid-cols-2 gap-3">
+                <div class="bg-mild rounded-lg p-3 text-center">
+                    <i class="fa fa-comments text-main text-xl mb-1"></i>
+                    <p class="text-sm">客户沟通能力</p>
+                </div>
+                <div class="bg-mild rounded-lg p-3 text-center">
+                    <i class="fa fa-laptop text-main text-xl mb-1"></i>
+                    <p class="text-sm">基础电脑操作</p>
+                </div>
+                <div class="bg-mild rounded-lg p-3 text-center">
+                    <i class="fa fa-handshake-o text-main text-xl mb-1"></i>
+                    <p class="text-sm">团队协作配合</p>
+                </div>
+                <div class="bg-mild rounded-lg p-3 text-center">
+                    <i class="fa fa-clock-o text-main text-xl mb-1"></i>
+                    <p class="text-sm">问题应急处理</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 自我评价 -->
+        <div class="mt-5 px-5 mb-8">
+            <div class="title-border mb-3">自我评价</div>
+            <div class="rounded-xl panel-shadow p-4">
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    本人性格沉稳亲和，待人真诚友善，具备丰富的多平台客服实操经验，熟悉客户接待与售后处理全流程。
+                    <br><br>
+                    学习能力较强，能够快速适配不同平台工作模式，情绪把控良好，耐心对待每一位客户。工作态度端正，吃苦耐劳，遵守规章制度，善于团队协作。愿意不断精进服务水平，认真履职尽责，胜任客服相关岗位工作。
+                </p>
+            </div>
+        </div>
+
+        <!-- 底部收尾 -->
+        <div class="text-center text-gray-400 text-sm py-4 border-t border-gray-100 mx-5">
+            至此完毕
+        </div>
+    </div>
+</body>
+</html>
