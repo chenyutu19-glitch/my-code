@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庞大琅 - 个人简历</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        core: '#444654',
+                        secondary: '#6366F1',
+                        bgSoft: '#FFFFFF',
+                        pageBg: '#F7F8FA',
+                    },
+                    fontFamily: {
+                        sans: ['"PingFang SC"', 'Microsoft YaHei', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .title-line {
+                @apply w-12 h-0.5 bg-secondary mx-auto mt-2;
+            }
+            .block-border {
+                @apply border-b border-gray-200 pb-4 last:border-0 last:pb-0;
+            }
+        }
+        body {
+            background-color: #F7F8FA;
+        }
+    </style>
+</head>
+<body class="text-core font-sans">
+    <div class="max-w-md mx-auto bg-bgSoft min-h-screen p-6">
+        <!-- 头部标题 + 新增头像区域 -->
+        <div class="text-center py-4 mb-6">
+            <!-- 头像位置 -->
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-secondary shadow-sm">
+                <img 
+                    src="./pdl.jpg" 
+                    alt="个人头像" 
+                    class="w-full h-full object-cover"
+                    onerror="this.onerror=null;this.src='https://picsum.photos/200/200'">
+            </div>
+            <h1 class="text-[28px] font-bold tracking-wide">个人简历</h1>
+            <div class="title-line"></div>
+            <p class="text-gray-500 text-sm mt-3">求职意向：电商运营助理 | 新媒体助理 | 实习岗位</p>
+        </div>
+
+        <!-- 基本信息 -->
+        <div class="mb-7">
+            <h2 class="text-lg font-semibold mb-3 inline-block border-l-4 border-secondary pl-2">基本信息</h2>
+            <div class="grid grid-cols-2 gap-2 text-sm text-gray-700 pl-1">
+                <p><i class="fa fa-user text-secondary mr-1"></i> 姓名：庞大琅</p>
+                <p><i class="fa fa-calendar text-secondary mr-1"></i> 年龄：19岁</p>
+                <p><i class="fa fa-phone text-secondary mr-1"></i> 电话：13078488958</p>
+                <p><i class="fa fa-map-marker text-secondary mr-1"></i> 城市：佛山顺德</p>
+                <p><i class="fa fa-graduation-cap text-secondary mr-1"></i> 学历：大专在读</p>
+                <p><i class="fa fa-school text-secondary mr-1"></i> 院校：顺德职业技术学院</p>
+                <p class="col-span-2"><i class="fa fa-book text-secondary mr-1"></i> 专业：电子商务</p>
+            </div>
+        </div>
+
+        <!-- 教育背景 -->
+        <div class="mb-7 block-border">
+            <h2 class="text-lg font-semibold mb-3 inline-block border-l-4 border-secondary pl-2">教育背景</h2>
+            <div class="pl-1 text-sm">
+                <p class="font-medium">2024.09-2027.06 &nbsp; 顺德职业技术学院 &nbsp; 电子商务专业</p>
+                <p class="text-gray-700 mt-2 leading-relaxed">
+                    系统学习电商运营、网络营销、短视频制作、基础数据分析等专业内容，具备岗位基础能力。
+                </p>
+            </div>
+        </div>
+
+        <!-- 校园经历 -->
+        <div class="mb-7 block-border">
+            <h2 class="text-lg font-semibold mb-3 inline-block border-l-4 border-secondary pl-2">校园经历</h2>
+            <div class="pl-1 text-sm text-gray-700 leading-relaxed">
+                <p>参与校内电商实训，熟悉淘宝、抖音电商基础操作，掌握商品上架、店铺维护、订单及客服基础工作。接触新媒体内容制作，会基础文案编辑、视频剪辑与图文排版。</p>
+            </div>
+        </div>
+
+        <!-- 个人技能 -->
+        <div class="mb-7 block-border">
+            <h2 class="text-lg font-semibold mb-3 inline-block border-l-4 border-secondary pl-2">个人技能</h2>
+            <div class="pl-1 text-sm text-gray-700 leading-relaxed">
+                <p>熟练Office办公软件；掌握基础电商运营、新媒体剪辑技能；学习能力强、做事细心、执行力好。</p>
+            </div>
+        </div>
+
+        <!-- 自我评价 -->
+        <div class="mb-10">
+            <h2 class="text-lg font-semibold mb-3 inline-block border-l-4 border-secondary pl-2">自我评价</h2>
+            <div class="pl-1 text-sm text-gray-700 leading-relaxed">
+                <p>性格踏实稳重，积极好学，对电商行业兴趣浓厚。能快速适应工作，服从安排，认真完成各项基础工作，愿意长期积累成长。</p>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="text-center text-xs text-gray-400 pt-4 border-t border-gray-100">
+            真诚求职 · 踏实肯干
+        </div>
+    </div>
+</body>
+</html>
