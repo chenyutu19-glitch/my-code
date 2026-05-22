@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历 - 黄彦菲</title>
+    <title>黄彦菲的个人简历</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
@@ -12,9 +12,8 @@
                 extend: {
                     colors: {
                         primary: '#165DFF',
-                        secondary: '#36CFC9',
-                        dark: '#1D2939',
-                        light: '#F9FAFB'
+                        lightGray: '#F0F2F5',
+                        darkText: '#1D2939',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -28,235 +27,204 @@
             .content-auto {
                 content-visibility: auto;
             }
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            .section-title-line {
+                @apply w-1 bg-primary h-6 inline-block mr-2 align-middle;
             }
-            .transition-all-300 {
-                transition: all 0.3s ease;
+            .section-title-bg {
+                @apply bg-lightGray py-2 px-4 flex items-center text-darkText font-bold text-lg;
             }
-            .scrollbar-hide::-webkit-scrollbar {
-                display: none;
-            }
-            .scrollbar-hide {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
+            .card-shadow {
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             }
         }
-
         html {
             scroll-behavior: smooth;
         }
+        body {
+            background-color: #F5F7FA;
+        }
     </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800">
-    <!-- 移动端顶部导航 -->
-    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 md:hidden no-print">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-primary">黄彦菲</h1>
-            <button id="mobile-menu-btn" class="text-gray-600 focus:outline-none">
-                <i class="fa fa-bars text-xl"></i>
-            </button>
+<body class="font-sans text-darkText">
+    <!-- 整体容器：手机端全屏，电脑端居中显示 -->
+    <div class="max-w-md mx-auto bg-white min-h-screen">
+        <!-- 1. 顶部封面 -->
+        <div class="relative h-48 bg-gradient-to-b from-blue-50 to-blue-100 flex flex-col items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://picsum.photos/800/400?blur=2')] bg-cover bg-center"></div>
+            <h1 class="text-5xl font-bold text-darkText tracking-wider">个人简历</h1>
+            <p class="text-sm text-gray-500 mt-2 italic">不被一眼否定，为自己前行</p>
         </div>
-        <div id="mobile-menu" class="hidden bg-white shadow-lg">
-            <div class="container mx-auto px-4 py-2">
-                <a href="#about" class="block py-2 hover:text-primary transition-all-300">个人简介</a>
-                <a href="#education" class="block py-2 hover:text-primary transition-all-300">教育背景</a>
-                <a href="#experience" class="block py-2 hover:text-primary transition-all-300">实践经历</a>
-                <a href="#skills" class="block py-2 hover:text-primary transition-all-300">个人技能</a>
-                <a href="#contact" class="block py-2 hover:text-primary transition-all-300">联系方式</a>
-            </div>
-        </div>
-    </nav>
 
-    <div class="flex min-h-screen">
-        <!-- 左侧边栏 - 桌面端显示 -->
-        <aside class="hidden md:block w-64 lg:w-72 bg-white shadow-lg fixed h-full overflow-y-auto scrollbar-hide no-print">
-            <div class="p-6 text-center">
+        <!-- 2. 基本信息模块 -->
+        <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
+            <div class="section-title-bg">
+                <span class="section-title-line"></span>
+                基本信息
+            </div>
+            <div class="p-4 flex items-center gap-4">
                 <!-- 头像 -->
-                <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
-                    <img src="./my-photo.jpg?v=1"alt="黄彦菲头像" class="w-full h-full object-cover">
+                <div class="w-24 h-24 rounded-lg overflow-hidden shadow-md flex-shrink-0">
+                    <img 
+                        src="./my-photo.jpg?v=2" 
+                        alt="黄彦菲" 
+                        class="w-full h-full object-cover"
+                        onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/img/logos/158x158.png';"
+                    >
                 </div>
-                
-                <h1 class="text-2xl font-bold text-dark mb-1">黄彦菲</h1>
-                <p class="text-primary font-medium mb-4">电子商务专业学生</p>
-                
-                <!-- 导航菜单 -->
-                <nav class="text-left space-y-1">
-                    <a href="#about" class="flex items-center py-2 px-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-all-300">
-                        <i class="fa fa-user w-6"></i>个人简介
-                    </a>
-                    <a href="#education" class="flex items-center py-2 px-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-all-300">
-                        <i class="fa fa-graduation-cap w-6"></i>教育背景
-                    </a>
-                    <a href="#experience" class="flex items-center py-2 px-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-all-300">
-                        <i class="fa fa-briefcase w-6"></i>实践经历
-                    </a>
-                    <a href="#skills" class="flex items-center py-2 px-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-all-300">
-                        <i class="fa fa-code w-6"></i>个人技能
-                    </a>
-                    <a href="#contact" class="flex items-center py-2 px-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-all-300">
-                        <i class="fa fa-paper-plane w-6"></i>联系方式
-                    </a>
-                </nav>
+                <!-- 文字信息 -->
+                <div class="flex-1">
+                    <p class="text-xl font-bold mb-1">姓名：黄彦菲</p>
+                    <p class="text-gray-600 mb-1">年龄：20岁</p>
+                    <p class="text-primary font-medium">求职意向：电商运营/客服/新媒体运营</p>
+                </div>
             </div>
-        </aside>
+        </div>
 
-        <!-- 右侧主内容区 -->
-        <main class="flex-1 md:ml-64 lg:ml-72 pt-16 md:pt-0">
-            <div class="container mx-auto px-4 py-8 lg:px-12 max-w-4xl">
-                <!-- 个人简介 + 照片 -->
-                <section id="about" class="mb-12">
-                    <h2 class="text-3xl font-bold text-dark mb-6 pb-2 border-b-2 border-primary/20">
-                        <i class="fa fa-user text-primary mr-2"></i>个人简介
-                    </h2>
-                    <div class="bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row gap-6 items-center">
-                        <!-- 照片（放在简介最前面，电脑端左右布局，手机端上下布局） -->
-                        <div class="w-40 h-40 rounded-lg overflow-hidden shadow-lg">
-                            <img src="./my-photo.jpg?v=1" alt="黄彦菲" class="w-full h-full object-cover">
-                        </div>
-                        <div class="text-gray-700 leading-relaxed text-center md:text-left">
-                            <p class="mb-2">我叫黄彦菲，目前就读于<strong>顺德职业技术大学</strong>，是<strong>电子商务专业</strong>在读学生。</p>
-                            <p class="mb-2">在校期间担任班级<strong>纪律委员</strong，对待工作认真负责，有极强的责任心和团队协作能力。</p>
-                            <p class="mb-2">性格开朗活泼，兴趣爱好广泛，喜欢<strong>唱歌、跳舞</strong>，善于沟通交流。</p>
-                            <p>拥有丰富的社会实践经验，具备良好的工作态度和适应能力。</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 教育背景 -->
-                <section id="education" class="mb-12">
-                    <h2 class="text-3xl font-bold text-dark mb-6 pb-2 border-b-2 border-primary/20">
-                        <i class="fa fa-graduation-cap text-primary mr-2"></i>教育背景
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all-300">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                <h3 class="text-xl font-bold text-dark">顺德职业技术大学</h3>
-                                <span class="text-primary font-medium">在读</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">电子商务专业 | 班级纪律委员</p>
-                            <p class="text-gray-700">
-                                主修课程：电子商务概论、网络营销、电商运营、新媒体运营、客户服务管理等。
-                                在校期间认真学习专业知识，积极参与校园活动，责任心强，获得老师和同学的认可。
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 实践/工作经历 -->
-                <section id="experience" class="mb-12">
-                    <h2 class="text-3xl font-bold text-dark mb-6 pb-2 border-b-2 border-primary/20">
-                        <i class="fa fa-briefcase text-primary mr-2"></i>实践与工作经历
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all-300">
-                            <h3 class="text-xl font-bold text-dark mb-2">电商公司 实习</h3>
-                            <p class="text-gray-700 space-y-2">
-                                参与电商平台日常运营工作，协助处理订单、客户咨询、商品上架等基础工作，熟悉电商工作流程。
-                            </p>
-                        </div>
-
-                        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all-300">
-                            <h3 class="text-xl font-bold text-dark mb-2">电商公司 寒暑假工</h3>
-                            <p class="text-gray-700 space-y-2">
-                                利用寒暑假时间参与电商相关工作，积累了丰富的职场经验，提升了沟通能力和执行力。
-                            </p>
-                        </div>
-
-                        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all-300">
-                            <h3 class="text-xl font-bold text-dark mb-2">工厂 社会实践</h3>
-                            <p class="text-gray-700 space-y-2">
-                                进厂参与社会实践，锻炼了吃苦耐劳的品质，培养了严谨的工作态度和高效的执行能力。
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 个人技能 -->
-                <section id="skills" class="mb-12">
-                    <h2 class="text-3xl font-bold text-dark mb-6 pb-2 border-b-2 border-primary/20">
-                        <i class="fa fa-star text-primary mr-2"></i>个人技能
-                    </h2>
-                    <div class="bg-white rounded-xl shadow-md p-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h3 class="text-lg font-bold text-dark mb-4">专业能力</h3>
-                                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                    <li>电商基础运营</li>
-                                    <li>网络营销基础</li>
-                                    <li>客户沟通与服务</li>
-                                    <li>办公软件熟练使用</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <h3 class="text-lg font-bold text-dark mb-4">个人特质</h3>
-                                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                    <li>责任心强，严谨认真</li>
-                                    <li>善于沟通，团队协作</li>
-                                    <li>性格开朗，热爱文艺</li>
-                                    <li>适应力强，吃苦耐劳</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-6">
-                            <h3 class="text-lg font-bold text-dark mb-3">兴趣爱好</h3>
-                            <p class="text-gray-700">唱歌、跳舞、文艺活动、社交交流</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 联系方式 -->
-                <section id="contact" class="mb-12 no-print">
-                    <h2 class="text-3xl font-bold text-dark mb-6 pb-2 border-b-2 border-primary/20">
-                        <i class="fa fa-paper-plane text-primary mr-2"></i>联系方式
-                    </h2>
-                    <div class="bg-white rounded-xl shadow-md p-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="flex items-center p-4 bg-gray-50 rounded-lg">
-                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fa fa-phone text-primary text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-dark">电话</h4>
-                                    <p class="text-gray-600">请填写你的手机号</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center p-4 bg-gray-50 rounded-lg">
-                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fa fa-weixin text-primary text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-dark">微信</h4>
-                                    <p class="text-gray-600">请填写你的微信号</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 页脚 -->
-                <footer class="text-center text-gray-500 py-6 border-t border-gray-200">
-                    <p>© 2025 黄彦菲 | 个人简历</p>
-                </footer>
+        <!-- 3. 联系方式模块 -->
+        <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
+            <div class="section-title-bg">
+                <span class="section-title-line"></span>
+                联系方式
             </div>
-        </main>
+            <div class="p-4 space-y-4">
+                <!-- 电话 -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <i class="fa fa-phone text-primary text-lg w-6"></i>
+                        <span>请填写你的手机号</span>
+                    </div>
+                    <span class="text-gray-500 text-sm">拨打</span>
+                </div>
+                <!-- 邮箱 -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <i class="fa fa-envelope-o text-primary text-lg w-6"></i>
+                        <span>请填写你的邮箱</span>
+                    </div>
+                    <span class="text-gray-500 text-sm">复制</span>
+                </div>
+                <!-- 地址 -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <i class="fa fa-map-marker text-primary text-lg w-6"></i>
+                        <span>广东省佛山市顺德区</span>
+                    </div>
+                    <span class="text-gray-500 text-sm">复制</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 教育背景模块 -->
+        <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
+            <div class="section-title-bg">
+                <span class="section-title-line"></span>
+                教育背景
+            </div>
+            <div class="p-4">
+                <div class="font-bold text-lg mb-2">顺德职业技术大学</div>
+                <p class="text-gray-600 mb-3">电子商务专业 | 在读 | 班级纪律委员</p>
+                <div class="border-t border-gray-100 pt-3">
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        主修课程：电子商务概论、网络营销、电商运营、新媒体运营、客户服务管理、Photoshop基础等。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 工作/实践经历模块 -->
+        <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
+            <div class="section-title-bg">
+                <span class="section-title-line"></span>
+                实践与工作经历
+            </div>
+            <div class="p-4 space-y-4">
+                <!-- 电商实习 -->
+                <div>
+                    <p class="font-bold">电商公司 实习</p>
+                    <p class="text-gray-500 text-sm mb-2">电商运营助理</p>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        协助处理订单管理、客户咨询、商品上架等基础运营工作，熟悉电商平台流程，提升沟通与执行能力。
+                    </p>
+                </div>
+                <div class="border-t border-gray-100 pt-4">
+                    <p class="font-bold">电商公司 寒暑假工</p>
+                    <p class="text-gray-500 text-sm mb-2">客服/运营助理</p>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        负责客户咨询回复、售后问题处理，参与店铺活动协助，积累了丰富的一线服务经验。
+                    </p>
+                </div>
+                <div class="border-t border-gray-100 pt-4">
+                    <p class="font-bold">工厂 社会实践</p>
+                    <p class="text-gray-500 text-sm mb-2">流水线作业员</p>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        参与生产流水线工作，锻炼了吃苦耐劳的品质，培养了严谨细致的工作态度和团队协作能力。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. 在校经历模块 -->
+        <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
+            <div class="section-title-bg">
+                <span class="section-title-line"></span>
+                在校经历
+            </div>
+            <div class="p-4">
+                <p class="font-bold mb-2">班级纪律委员</p>
+                <p class="text-gray-500 text-sm mb-3">任职至今</p>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    负责班级纪律管理、考勤统计，协助老师维持课堂秩序，处理同学日常事务，责任心强，获得老师和同学的认可，锻炼了组织协调与沟通能力。
+                </p>
+            </div>
+        </div>
+
+        <!-- 7. 技能证书模块 -->
+        <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
+            <div class="section-title-bg">
+                <span class="section-title-line"></span>
+                技能证书
+            </div>
+            <div class="p-4 grid grid-cols-2 gap-3">
+                <div class="bg-lightGray rounded-lg p-3 text-center">
+                    <i class="fa fa-certificate text-primary text-2xl mb-2"></i>
+                    <p class="font-medium text-sm">英语一级证书</p>
+                </div>
+                <div class="bg-lightGray rounded-lg p-3 text-center">
+                    <i class="fa fa-desktop text-primary text-2xl mb-2"></i>
+                    <p class="font-medium text-sm">计算机一级证书</p>
+                </div>
+                <div class="bg-lightGray rounded-lg p-3 text-center">
+                    <i class="fa fa-paint-brush text-primary text-2xl mb-2"></i>
+                    <p class="font-medium text-sm">Photoshop中级证书</p>
+                </div>
+                <div class="bg-lightGray rounded-lg p-3 text-center">
+                    <i class="fa fa-star text-primary text-2xl mb-2"></i>
+                    <p class="font-medium text-sm">电商运营基础技能</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. 自我评价模块 -->
+        <div class="mt-4 mx-4 mb-8 rounded-lg overflow-hidden card-shadow">
+            <div class="section-title-bg">
+                <span class="section-title-line"></span>
+                自我评价
+            </div>
+            <div class="p-4">
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    我是黄彦菲，一名就读于顺德职业技术大学电子商务专业的学生，担任班级纪律委员，对待工作认真负责，责任心强。
+                    <br><br>
+                    性格开朗活泼，善于沟通交流，有良好的团队协作能力，能快速适应新环境。拥有丰富的社会实践经历，做事踏实细心，吃苦耐劳，执行力强。
+                    <br><br>
+                    兴趣爱好广泛，喜欢唱歌、跳舞，乐观积极，乐于学习新知识，希望能在电商相关岗位上发挥自己的专业能力，不断成长进步。
+                </p>
+            </div>
+        </div>
+
+        <!-- 底部结束 -->
+        <div class="text-center text-gray-400 text-sm py-4 border-t border-gray-100">
+            —— END ——
+        </div>
     </div>
-
-    <script>
-        // 移动端菜单
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        const mobileMenuItems = mobileMenu.querySelectorAll('a');
-        mobileMenuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    </script>
 </body>
 </html>
