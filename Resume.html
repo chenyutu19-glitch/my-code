@@ -46,23 +46,21 @@
     </style>
 </head>
 <body class="font-sans text-darkText">
-    <!-- 整体容器：手机端全屏，电脑端居中显示 -->
     <div class="max-w-md mx-auto bg-white min-h-screen">
-        <!-- 1. 顶部封面 -->
+        <!-- 顶部封面 -->
         <div class="relative h-48 bg-gradient-to-b from-blue-50 to-blue-100 flex flex-col items-center justify-center overflow-hidden">
             <div class="absolute inset-0 opacity-10 bg-[url('https://picsum.photos/800/400?blur=2')] bg-cover bg-center"></div>
             <h1 class="text-5xl font-bold text-darkText tracking-wider">个人简历</h1>
-            <p class="text-sm text-gray-500 mt-2 italic">我一直在努力！</p>
+            <p class="text-sm text-gray-500 mt-2 italic">不被一眼否定，为自己前行</p>
         </div>
 
-        <!-- 2. 基本信息模块 -->
+        <!-- 基本信息 -->
         <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
             <div class="section-title-bg">
                 <span class="section-title-line"></span>
                 基本信息
             </div>
             <div class="p-4 flex items-center gap-4">
-                <!-- 头像 -->
                 <div class="w-24 h-24 rounded-lg overflow-hidden shadow-md flex-shrink-0">
                     <img 
                         src="./my-photo.jpg?v=2" 
@@ -71,7 +69,6 @@
                         onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/img/logos/158x158.png';"
                     >
                 </div>
-                <!-- 文字信息 -->
                 <div class="flex-1">
                     <p class="text-xl font-bold mb-1">姓名：黄彦菲</p>
                     <p class="text-gray-600 mb-1">年龄：19岁</p>
@@ -81,14 +78,13 @@
             </div>
         </div>
 
-        <!-- 3. 联系方式模块 -->
+        <!-- 联系方式 -->
         <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
             <div class="section-title-bg">
                 <span class="section-title-line"></span>
                 联系方式
             </div>
             <div class="p-4 space-y-4">
-                <!-- 电话 -->
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <i class="fa fa-phone text-primary text-lg w-6"></i>
@@ -96,7 +92,6 @@
                     </div>
                     <span class="text-gray-500 text-sm">拨打</span>
                 </div>
-                <!-- 邮箱 -->
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <i class="fa fa-envelope-o text-primary text-lg w-6"></i>
@@ -104,7 +99,6 @@
                     </div>
                     <span class="text-gray-500 text-sm">复制</span>
                 </div>
-                <!-- 地址 -->
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <i class="fa fa-map-marker text-primary text-lg w-6"></i>
@@ -115,7 +109,7 @@
             </div>
         </div>
 
-        <!-- 4. 教育背景模块 -->
+        <!-- 教育背景 -->
         <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
             <div class="section-title-bg">
                 <span class="section-title-line"></span>
@@ -132,42 +126,41 @@
             </div>
         </div>
 
-        <!-- 5. 工作/实践经历模块 -->
+        <!-- 工作经验（各4行） -->
         <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
             <div class="section-title-bg">
                 <span class="section-title-line"></span>
                 工作经验
             </div>
             <div class="p-4 space-y-4">
-                <!-- 主播 湘越园艺公司 -->
                 <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <p class="font-bold">售前/售后客服 | 广东美易达网络科技集团</p>
+                        <p class="text-gray-500 text-sm">2024.07-2025.02</p>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-700 text-sm leading-relaxed space-y-1">
+                        <li>负责电器类产品电商售前售后全流程工作，接待客户咨询并精准解答疑问</li>
+                        <li>处理订单核对、物流跟进、售后纠纷等问题，保障客户购物体验</li>
+                        <li>整理高频咨询问题，优化沟通话术，提升服务效率与订单转化率</li>
+                        <li>维护客户关系与店铺口碑，熟练使用电商后台完成各项工作</li>
+                    </ul>
+                </div>
+                <div class="border-t border-gray-100 pt-4">
                     <div class="flex justify-between items-center mb-1">
                         <p class="font-bold">主播 | 湘越园艺公司</p>
                         <p class="text-gray-500 text-sm">2024.07-2024.08</p>
                     </div>
-                    <ul class="list-disc pl-5 text-gray-700 text-sm leading-relaxed space-y-2">
-                        <li>担任陶粒产品短视频出镜主播，按脚本完成口播录制，清晰传递产品核心卖点，熟悉镜头表达与带货话术节奏</li>
-                        <li>配合运营团队优化内容表达，根据用户反馈调整口播语气与节奏，提升视频完播率与用户咨询量</li>
-                        <li>学习剪映基础剪辑操作，参与视频字幕、封面制作，了解短视频内容生产全流程</li>
-                    </ul>
-                </div>
-                <div class="border-t border-gray-100 pt-4">
-                    <!-- 售前/售后客服 萌客/美易达 -->
-                    <div class="flex justify-between items-center mb-1">
-                        <p class="font-bold">售前/售后客服 | 萌客/美易达有限公司</p>
-                        <p class="text-gray-500 text-sm">2024.07-2025.02</p>
-                    </div>
-                    <ul class="list-disc pl-5 text-gray-700 text-sm leading-relaxed space-y-2">
-                        <li>负责电视、电器等多品类电商售前售后全流程，日均接待 400 + 客户咨询，精准解答产品及售后问题，保障用户体验</li>
-                        <li>挖掘用户核心需求，整理高频问题形成标准化话术，提升咨询效率与订单转化率</li>
-                        <li>跟进订单、物流及售后纠纷，维护客户关系，降低纠纷率，保障店铺口碑</li>
-                        <li>熟悉电商后台操作，掌握订单管理与数据整理能力，具备良好沟通与问题解决能力</li>
+                    <ul class="list-disc pl-5 text-gray-700 text-sm leading-relaxed space-y-1">
+                        <li>担任陶粒产品短视频出镜主播，按照脚本完成口播录制工作</li>
+                        <li>清晰传递产品核心卖点，熟悉镜头表达与带货话术节奏</li>
+                        <li>配合运营团队优化内容表达，提升视频完播率与咨询量</li>
+                        <li>学习剪映基础剪辑，参与字幕与封面制作，了解内容生产流程</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 6. 在校经历模块 -->
+        <!-- 在校经历 -->
         <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
             <div class="section-title-bg">
                 <span class="section-title-line"></span>
@@ -182,20 +175,33 @@
             </div>
         </div>
 
-        <!-- 7. 技能证书模块 -->
+        <!-- 技能证书（原版） -->
         <div class="mt-4 mx-4 rounded-lg overflow-hidden card-shadow">
             <div class="section-title-bg">
                 <span class="section-title-line"></span>
-                职业技能
+                技能证书
             </div>
-            <div class="p-4 space-y-2 text-gray-700 text-sm leading-relaxed">
-                <p>✅ 内容运营：具备小红书内容策划与发布经验，熟悉平台种草逻辑与数据复盘方法，能独立完成选题、文案与排版</p>
-                <p>✅ 设计工具：PS 中级证书，能完成图片处理与海报设计；熟练使用剪映进行基础视频剪辑</p>
-                <p>✅ 办公能力：计算机一级、英语一级证书，熟练操作 Word、Excel、PowerPoint 等办公软件</p>
+            <div class="p-4 grid grid-cols-2 gap-3">
+                <div class="bg-lightGray rounded-lg p-3 text-center">
+                    <i class="fa fa-certificate text-primary text-2xl mb-2"></i>
+                    <p class="font-medium text-sm">英语一级证书</p>
+                </div>
+                <div class="bg-lightGray rounded-lg p-3 text-center">
+                    <i class="fa fa-desktop text-primary text-2xl mb-2"></i>
+                    <p class="font-medium text-sm">计算机一级证书</p>
+                </div>
+                <div class="bg-lightGray rounded-lg p-3 text-center">
+                    <i class="fa fa-paint-brush text-primary text-2xl mb-2"></i>
+                    <p class="font-medium text-sm">Photoshop中级证书</p>
+                </div>
+                <div class="bg-lightGray rounded-lg p-3 text-center">
+                    <i class="fa fa-star text-primary text-2xl mb-2"></i>
+                    <p class="font-medium text-sm">电商客服基础技能</p>
+                </div>
             </div>
         </div>
 
-        <!-- 8. 自我评价模块 -->
+        <!-- 自我评价（7行左右） -->
         <div class="mt-4 mx-4 mb-8 rounded-lg overflow-hidden card-shadow">
             <div class="section-title-bg">
                 <span class="section-title-line"></span>
@@ -203,18 +209,24 @@
             </div>
             <div class="p-4">
                 <p class="text-gray-700 text-sm leading-relaxed">
-                    本人为电子商务专业在读生，兼具电商服务与短视频实践双重经验，适配新媒体运营岗位需求。专业基础扎实，熟悉电商运营逻辑与短视频内容生态。
+                    本人性格踏实认真，责任心与执行力强，具备良好的沟通与协作能力。
                     <br><br>
-                    曾担任多品类电商客服，擅长用户需求洞察与产品卖点提炼，能为内容选题与用户运营提供支撑。
+                    电子商务专业基础扎实，熟悉电商运营与短视频内容创作逻辑。
                     <br><br>
-                    也有短视频出镜主播经历，熟悉脚本口播、内容优化与带货节奏，了解内容生产全流程。
+                    拥有美易达客服实习经验，擅长用户需求洞察与问题处理，服务意识良好。
                     <br><br>
-                    在校担任班级纪律委员，做事严谨细致；具备吃苦耐劳的实践精神，学习能力强，能快速适应岗位节奏，对待工作认真负责。
+                    具备短视频主播实践经历，熟悉镜头表达、带货话术与内容优化方法。
+                    <br><br>
+                    在校担任纪律委员，养成严谨细致、认真负责的工作态度。
+                    <br><br>
+                    学习能力与适应力强，能够快速上手新工作与新环境。
+                    <br><br>
+                    对待工作积极主动，能稳定高效完成任务，适配新媒体运营相关岗位。
                 </p>
             </div>
         </div>
 
-        <!-- 底部结束 -->
+        <!-- 底部 -->
         <div class="text-center text-gray-400 text-sm py-4 border-t border-gray-100">
             —— END ——
         </div>
