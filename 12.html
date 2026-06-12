@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菲不卷的松弛生活指南</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 自定义Tailwind配置（严格匹配策划色彩） -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FFFDF9',     // 奶油白（主背景）
+                        mint: '#E6F4F1',      // 浅薄荷绿（主色调）
+                        beige: '#F5EFE6',     // 暖米色（辅助色）
+                        yellow: '#FFF3CD',    // 浅鹅黄（强调色）
+                        pink: '#F8D7DA',      // 淡粉（按钮色）
+                        dark: '#333333',      // 深灰（标题）
+                        gray: '#555555'       // 中灰（正文）
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-sm {
+                text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            }
+        }
+    </style>
+    
+    <style>
+        body {
+            background-color: #FFFDF9;
+            color: #555555;
+            line-height: 1.6;
+        }
+        
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5EFE6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E6F4F1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d1e7dd;
+        }
+        
+        /* 淡入动画 */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans scroll-smooth">
+    <!-- 顶部导航栏（滚动时变色） -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#home" class="text-dark font-medium text-lg">菲不卷</a>
+            <button id="scrollTop" class="text-mint hover:text-dark transition-colors" aria-label="返回顶部">
+                <i class="fa fa-arrow-up"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. 主视觉区（首页） -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 fade-in">
+        <div class="mb-8">
+            <i class="fa fa-coffee text-6xl text-mint mb-6"></i>
+            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-4 text-shadow-sm">
+                菲不卷的松弛生活指南
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.2rem)] text-gray max-w-md mx-auto mb-8">
+                生活不是一场冲刺，而是一场马拉松<br>
+                那些不被定义的瞬间，才是支撑我们走下去的底气
+            </p>
+            <a href="#sections" class="inline-block bg-mint hover:bg-opacity-90 text-dark font-medium px-6 py-3 rounded-full transition-all card-hover">
+                开始探索 <i class="fa fa-chevron-down ml-2"></i>
+            </a>
+        </div>
+        <div class="absolute bottom-10 animate-bounce">
+            <i class="fa fa-angle-down text-mint text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- 2. 核心栏目区（四个松弛方法） -->
+    <section id="sections" class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-2xl font-bold text-dark text-center mb-12">
+                <span class="border-b-4 border-yellow pb-2">大学生的四件松弛小事</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 卡片1：不设闹钟的早晨 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover fade-in" style="animation-delay: 0.1s">
+                    <div class="w-12 h-12 bg-yellow rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-sun-o text-dark text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">不设闹钟的早晨</h3>
+                    <p class="text-gray mb-4">
+                        关掉所有闹钟，睡到自然醒。听窗外的鸟叫，感受阳光晒到被子上的温度。
+                        不用急着赶时间，一杯热豆浆，就是一整天的能量来源。
+                    </p>
+                    <button class="text-mint hover:text-dark font-medium flex items-center" data-detail="morning">
+                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- 卡片2：无用的阅读 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover fade-in" style="animation-delay: 0.2s">
+                    <div class="w-12 h-12 bg-mint rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-book text-dark text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">不用"学到东西"的阅读</h3>
+                    <p class="text-gray mb-4">
+                        放下专业书和干货文，看一本软乎乎的绘本，或者一本讲美食的散文集。
+                        不用做笔记，不用写读后感，只是单纯地跟着文字放空。
+                    </p>
+                    <button class="text-mint hover:text-dark font-medium flex items-center" data-detail="reading">
+                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- 卡片3：不打卡的散步 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover fade-in" style="animation-delay: 0.3s">
+                    <div class="w-12 h-12 bg-beige rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-leaf text-dark text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">不打卡的散步</h3>
+                    <p class="text-gray mb-4">
+                        关掉计步器，绕着学校的小路随便走。看夕阳把教学楼的影子拉长，
+                        闻路边栀子花的香味，让晚风把所有烦恼都吹走。
+                    </p>
+                    <button class="text-mint hover:text-dark font-medium flex items-center" data-detail="walk">
+                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- 卡片4：摆烂的周末 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover fade-in" style="animation-delay: 0.4s">
+                    <div class="w-12 h-12 bg-pink rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-bed text-dark text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">不用"自律"的周末</h3>
+                    <p class="text-gray mb-4">
+                        给自己留一个完全摆烂的下午。窝在椅子里看老电影，瘫在床上刷短视频。
+                        不用为浪费时间愧疚，偶尔摆烂也是一种重要的自我修复。
+                    </p>
+                    <button class="text-mint hover:text-dark font-medium flex items-center" data-detail="weekend">
+                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 读者投稿区 -->
+    <section class="py-16 px-4 bg-beige bg-opacity-50">
+        <div class="container mx-auto max-w-2xl text-center">
+            <h2 class="text-2xl font-bold text-dark mb-6">分享你的松弛瞬间</h2>
+            <p class="text-gray mb-8">
+                每个人都有自己的松弛方式，欢迎在下方写下你最近get到的松弛感瞬间
+            </p>
+            <form id="shareForm" class="bg-white rounded-2xl p-6 shadow-sm">
+                <textarea 
+                    class="w-full p-4 border border-mint rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-mint"
+                    rows="4"
+                    placeholder="我最近的松弛感瞬间是..."
+                    required
+                    minlength="5"
+                    maxlength="200"></textarea>
+                <button type="submit" class="w-full bg-mint hover:bg-opacity-90 text-dark font-medium px-6 py-3 rounded-full transition-all card-hover">
+                    提交分享
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 4. 关注公众号区 -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-md text-center">
+            <h2 class="text-2xl font-bold text-dark mb-6">关注菲不卷</h2>
+            <p class="text-gray mb-8">
+                扫描下方二维码，关注我的微信公众号<br>
+                一起把平凡的日子，过成自己喜欢的样子
+            </p>
+            <div class="bg-white rounded-2xl p-8 shadow-sm mb-6">
+                <!-- 这里替换成你的公众号二维码图片 -->
+                <div class="w-48 h-48 bg-mint bg-opacity-20 mx-auto rounded-lg flex items-center justify-center mb-4 relative">
+                    <i class="fa fa-qrcode text-6xl text-mint"></i>
+                    <p class="text-xs text-gray absolute bottom-2">公众号二维码占位</p>
+                </div>
+                <p class="text-dark font-medium">微信搜索：菲不卷</p>
+            </div>
+            <a href="#home" class="inline-block text-mint hover:text-dark font-medium">
+                <i class="fa fa-arrow-up mr-2"></i> 返回顶部
+            </a>
+        </div>
+    </section>
+
+    <!-- 5. 页脚 -->
+    <footer class="py-6 px-4 bg-dark text-white text-center text-sm">
+        <p>© 2026 菲不卷 | 生活碎片里的松弛感</p>
+    </footer>
+
+    <!-- 详情模态框（点击卡片弹出） -->
+    <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modalTitle" class="text-xl font-bold text-dark"></h3>
+                <button id="closeModal" class="text-gray hover:text-dark" aria-label="关闭">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="text-gray"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript 交互逻辑 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 元素获取
+            const navbar = document.getElementById('navbar');
+            const scrollTopBtn = document.getElementById('scrollTop');
+            const detailModal = document.getElementById('detailModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const closeModalBtn = document.getElementById('closeModal');
+            const shareForm = document.getElementById('shareForm');
+            const detailButtons = document.querySelectorAll('[data-detail]');
+
+            // 详情模态框数据
+            const details = {
+                morning: {
+                    title: "不设闹钟的早晨",
+                    content: `
+                        <p class="mb-4">以前的我，定好三个闹钟才敢睡，生怕起晚了赶不上早八。但现在，我会在没有课的早上，关掉所有闹钟，让自己睡到自然醒。</p>
+                        <p class="mb-4">醒来不用立刻摸手机，就躺着听一会儿窗外的鸟叫，感受阳光慢慢晒到被子上的温度。</p>
+                        <p class="mb-4">起床后不用急着收拾，先去食堂买一杯热豆浆，或者在宿舍泡一杯速溶咖啡，就坐在窗边慢慢喝。</p>
+                        <p>不用想今天要完成多少任务，不用逼自己立刻进入学习状态，就只是和自己安安静静待一会儿。原来，不被时间追赶的早晨，真的会给一整天都充上电。</p>
+                    `
+                },
+                reading: {
+                    title: "不用\"学到东西\"的阅读",
+                    content: `
+                        <p class="mb-4">以前总觉得，看书必须看专业书、干货文，不然就是在浪费时间。</p>
+                        <p class="mb-4">但这个学期，我开始允许自己看一些"没什么用"的书：不用做笔记，不用写读后感，甚至不用逼自己看完一整本。</p>
+                        <p class="mb-4">可能是一本画风软乎乎的绘本，可能是一本讲美食的散文集，也可能只是翻几页别人的旅行日记。</p>
+                        <p>不用逼自己"提升自我"，只是单纯地跟着文字放空，让被专业课填满的脑子歇一歇。原来，不带着功利心去阅读，才是最治愈的。</p>
+                    `
+                },
+                walk: {
+                    title: "不打卡的散步",
+                    content: `
+                        <p class="mb-4">以前的我，散步也要打开计步器，目标一万步，少一步都觉得亏。</p>
+                        <p class="mb-4">现在的我，喜欢在傍晚吃完饭，绕着学校的小路随便走一走。不看步数，不刷手机，就只是走路、吹风，看夕阳把教学楼的影子拉得很长。</p>
+                        <p class="mb-4">路边的栀子花开了，风里带着夏天的味道，耳机里放着喜欢的歌。</p>
+                        <p>那些上课没听懂的知识点、赶不完的ddl、社团里的小烦恼，好像都被晚风一起吹走了。原来，散步的意义从来都不是打卡，而是让紧绷了一天的神经，慢慢松下来。</p>
+                    `
+                },
+                weekend: {
+                    title: "不用\"自律\"的周末",
+                    content: `
+                        <p class="mb-4">以前的周末，总想着要把时间填满：学英语、做兼职、赶作业，生怕自己被别人落下。</p>
+                        <p class="mb-4">现在的我，会给自己留一个"完全摆烂"的下午。不收拾房间，不强迫自己学习，就窝在宿舍的椅子里，看一部不用动脑子的老电影，或者瘫在床上刷搞笑短视频。</p>
+                        <p>不用为了"浪费时间"而愧疚，不用逼自己时刻保持高效。原来，偶尔摆烂，也是一种很重要的自我修复。</p>
+                    `
+                }
+            };
+
+            // 导航栏滚动效果
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-cream', 'shadow-sm');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.remove('bg-cream', 'shadow-sm');
+                    navbar.classList.add('bg-transparent');
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+
+            // 返回顶部按钮
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // 显示详情模态框
+            function showDetail(key) {
+                modalTitle.textContent = details[key].title;
+                modalContent.innerHTML = details[key].content;
+                detailModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // 关闭模态框
+            function closeModal() {
+                detailModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+
+            // 绑定详情按钮事件
+            detailButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const key = this.getAttribute('data-detail');
+                    showDetail(key);
+                });
+            });
+
+            // 关闭模态框事件
+            closeModalBtn.addEventListener('click', closeModal);
+            detailModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // 表单提交事件
+            shareForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const textarea = this.querySelector('textarea');
+                const content = textarea.value.trim();
+                
+                if (content.length < 5) {
+                    alert('请输入至少5个字符的分享内容');
+                    return;
+                }
+                
+                alert('感谢你的分享！你的松弛瞬间会温暖更多人✨');
+                this.reset();
+            });
+
+            // 页面卸载时清理事件监听器
+            window.addEventListener('beforeunload', function() {
+                window.removeEventListener('scroll', handleScroll);
+            });
+        });
+    </script>
+</body>
+</html>
