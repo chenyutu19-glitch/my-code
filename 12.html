@@ -2,365 +2,309 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>菲不卷的松弛生活指南</title>
-    <!-- 引入Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入Font Awesome图标 -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
-    <!-- 自定义Tailwind配置（严格匹配策划色彩） -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#FFFDF9',     // 奶油白（主背景）
-                        mint: '#E6F4F1',      // 浅薄荷绿（主色调）
-                        beige: '#F5EFE6',     // 暖米色（辅助色）
-                        yellow: '#FFF3CD',    // 浅鹅黄（强调色）
-                        pink: '#F8D7DA',      // 淡粉（按钮色）
-                        dark: '#333333',      // 深灰（标题）
-                        gray: '#555555'       // 中灰（正文）
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    
-    <!-- 自定义工具类 -->
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow-sm {
-                text-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            }
-            .card-hover {
-                transition: all 0.3s ease;
-            }
-            .card-hover:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-            }
-        }
-    </style>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>菲不卷 · 生活碎片集</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
         body {
-            background-color: #FFFDF9;
-            color: #555555;
-            line-height: 1.6;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #F8F5F0;
+            color: #3A3A3A;
+            line-height: 1.7;
         }
-        
-        /* 滚动条美化 */
-        ::-webkit-scrollbar {
-            width: 6px;
+
+        /* 顶部固定导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #FFFFFF;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 999;
         }
-        ::-webkit-scrollbar-track {
-            background: #F5EFE6;
+
+        .nav-item {
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0 12px;
+            position: relative;
+            transition: color 0.3s;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #E6F4F1;
-            border-radius: 3px;
+
+        .nav-item:hover {
+            color: #B89994;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #d1e7dd;
+
+        /* 我的日常 下拉子菜单 */
+        .submenu {
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            width: 120px;
+            overflow: hidden;
+            display: none;
         }
-        
-        /* 淡入动画 */
-        .fade-in {
-            animation: fadeIn 0.8s ease-in-out;
+
+        .submenu.active {
+            display: block;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .submenu-item {
+            padding: 10px 0;
+            text-align: center;
+            font-size: 15px;
+            border-bottom: 1px solid #F2EEE8;
+            transition: background 0.3s;
+        }
+
+        .submenu-item:last-child {
+            border-bottom: none;
+        }
+
+        .submenu-item:hover {
+            background: #F8F5F0;
+        }
+
+        /* 通用板块样式 */
+        .section {
+            padding: 80px 20px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            border-left: 3px solid #E8D5D2;
+            padding-left: 12px;
+        }
+
+        /* 首屏Banner */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        #home h1 {
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #3A3A3A;
+        }
+
+        #home p {
+            font-size: 16px;
+            color: #7A7A7A;
+        }
+
+        /* 我的日常板块 */
+        .daily-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .daily-card h3 {
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #B89994;
+        }
+
+        .daily-card p {
+            font-size: 14px;
+            color: #5A5A5A;
+            line-height: 1.8;
+        }
+
+        /* 往期内容板块 */
+        .article-content h3 {
+            font-size: 16px;
+            margin: 24px 0 10px;
+            color: #B89994;
+            font-weight: 500;
+        }
+
+        .article-content p {
+            font-size: 14px;
+            color: #5A5A5A;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .article-end {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ECE7E0;
+            font-size: 14px;
+            color: #7A7A7A;
+            line-height: 1.9;
+        }
+
+        /* 关于我板块 */
+        .about-box {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .about-text {
+            font-size: 15px;
+            color: #5A5A5A;
+            line-height: 1.8;
         }
     </style>
 </head>
-<body class="font-sans scroll-smooth">
-    <!-- 顶部导航栏（滚动时变色） -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#home" class="text-dark font-medium text-lg">菲不卷</a>
-            <button id="scrollTop" class="text-mint hover:text-dark transition-colors" aria-label="返回顶部">
-                <i class="fa fa-arrow-up"></i>
-            </button>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="nav-item" id="menu-daily">
+            我的日常
+            <div class="submenu" id="submenu-daily">
+                <div class="submenu-item" data-target="life">生活分享</div>
+                <div class="submenu-item" data-target="goods">好物分享</div>
+            </div>
         </div>
+        <div class="nav-item" data-target="history">往期内容</div>
+        <div class="nav-item" data-target="about">关于我</div>
     </nav>
 
-    <!-- 1. 主视觉区（首页） -->
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 fade-in">
-        <div class="mb-8">
-            <i class="fa fa-coffee text-6xl text-mint mb-6"></i>
-            <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-4 text-shadow-sm">
-                菲不卷的松弛生活指南
-            </h1>
-            <p class="text-[clamp(1rem,2vw,1.2rem)] text-gray max-w-md mx-auto mb-8">
-                生活不是一场冲刺，而是一场马拉松<br>
-                那些不被定义的瞬间，才是支撑我们走下去的底气
-            </p>
-            <a href="#sections" class="inline-block bg-mint hover:bg-opacity-90 text-dark font-medium px-6 py-3 rounded-full transition-all card-hover">
-                开始探索 <i class="fa fa-chevron-down ml-2"></i>
-            </a>
+    <!-- 首屏 -->
+    <section id="home">
+        <h1>生活碎片里的松弛感</h1>
+        <p>把平凡日子，过成自己喜欢的样子</p>
+    </section>
+
+    <!-- 我的日常 - 生活分享 -->
+    <section id="life" class="section">
+        <h2 class="section-title">生活分享</h2>
+        <div class="daily-card">
+            <h3>校园日常碎片</h3>
+            <p>记录早八路上的晨光、食堂的热豆浆、傍晚的晚风，捕捉大学生活里那些不起眼却治愈的小瞬间。</p>
         </div>
-        <div class="absolute bottom-10 animate-bounce">
-            <i class="fa fa-angle-down text-mint text-2xl"></i>
+        <div class="daily-card">
+            <h3>松弛感生活指南</h3>
+            <p>拒绝无效内卷，在满课和ddl之间找到呼吸的缝隙，分享低成本的快乐方式与自我调节的小方法。</p>
         </div>
     </section>
 
-    <!-- 2. 核心栏目区（四个松弛方法） -->
-    <section id="sections" class="py-16 px-4">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-2xl font-bold text-dark text-center mb-12">
-                <span class="border-b-4 border-yellow pb-2">大学生的四件松弛小事</span>
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- 卡片1：不设闹钟的早晨 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover fade-in" style="animation-delay: 0.1s">
-                    <div class="w-12 h-12 bg-yellow rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-sun-o text-dark text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">不设闹钟的早晨</h3>
-                    <p class="text-gray mb-4">
-                        关掉所有闹钟，睡到自然醒。听窗外的鸟叫，感受阳光晒到被子上的温度。
-                        不用急着赶时间，一杯热豆浆，就是一整天的能量来源。
-                    </p>
-                    <button class="text-mint hover:text-dark font-medium flex items-center" data-detail="morning">
-                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
+    <!-- 我的日常 - 好物分享 -->
+    <section id="goods" class="section">
+        <h2 class="section-title">好物分享</h2>
+        <div class="daily-card">
+            <h3>宿舍平价宝藏</h3>
+            <p>挖掘高性价比的宿舍好物，从收纳神器到提升幸福感的小物件，主打平价实用不踩雷。</p>
+        </div>
+        <div class="daily-card">
+            <h3>生活好物清单</h3>
+            <p>分享日常在用的护肤、文具、数码小配件，每一件都是真实使用后的良心推荐。</p>
+        </div>
+    </section>
 
-                <!-- 卡片2：无用的阅读 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover fade-in" style="animation-delay: 0.2s">
-                    <div class="w-12 h-12 bg-mint rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-book text-dark text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">不用"学到东西"的阅读</h3>
-                    <p class="text-gray mb-4">
-                        放下专业书和干货文，看一本软乎乎的绘本，或者一本讲美食的散文集。
-                        不用做笔记，不用写读后感，只是单纯地跟着文字放空。
-                    </p>
-                    <button class="text-mint hover:text-dark font-medium flex items-center" data-detail="reading">
-                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
+    <!-- 往期内容 -->
+    <section id="history" class="section">
+        <h2 class="section-title">往期内容</h2>
+        <div class="article-content">
+            <p style="font-size:15px; margin-bottom: 20px;">现在的我们好像总在被“必须高效”的声音推着走：朋友圈里别人的实习offer、小红书上的“逆袭计划”、甚至连刷手机都怕被说“浪费时间”。好像一旦慢下来，就成了不够努力的人。但真正能让我们撑下去的，从来都不是光鲜的高光时刻，而是藏在日常缝隙里的、没什么“用”的松弛瞬间。</p>
 
-                <!-- 卡片3：不打卡的散步 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover fade-in" style="animation-delay: 0.3s">
-                    <div class="w-12 h-12 bg-beige rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-leaf text-dark text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">不打卡的散步</h3>
-                    <p class="text-gray mb-4">
-                        关掉计步器，绕着学校的小路随便走。看夕阳把教学楼的影子拉长，
-                        闻路边栀子花的香味，让晚风把所有烦恼都吹走。
-                    </p>
-                    <button class="text-mint hover:text-dark font-medium flex items-center" data-detail="walk">
-                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
+            <h3>1. 不设闹钟的早晨，是大学生的顶级浪漫</h3>
+            <p>以前的我，定好三个闹钟才敢睡，生怕起晚了赶不上早八。但现在，我会在没有课的早上，关掉所有闹钟，让自己睡到自然醒。</p>
+            <p>醒来不用立刻摸手机，就躺着听一会儿窗外的鸟叫，感受阳光慢慢晒到被子上的温度。起床后不用急着收拾，先去食堂买一杯热豆浆，或者在宿舍泡一杯速溶咖啡，就坐在窗边慢慢喝。</p>
+            <p>不用想今天要完成多少任务，不用逼自己立刻进入学习状态，就只是和自己安安静静待一会儿。原来，不被时间追赶的早晨，真的会给一整天都充上电。</p>
 
-                <!-- 卡片4：摆烂的周末 -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm card-hover fade-in" style="animation-delay: 0.4s">
-                    <div class="w-12 h-12 bg-pink rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-bed text-dark text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">不用"自律"的周末</h3>
-                    <p class="text-gray mb-4">
-                        给自己留一个完全摆烂的下午。窝在椅子里看老电影，瘫在床上刷短视频。
-                        不用为浪费时间愧疚，偶尔摆烂也是一种重要的自我修复。
-                    </p>
-                    <button class="text-mint hover:text-dark font-medium flex items-center" data-detail="weekend">
-                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
+            <h3>2. 不用“学到东西”的阅读，才是真治愈</h3>
+            <p>以前总觉得，看书必须看专业书、干货文，不然就是在浪费时间。但这个学期，我开始允许自己看一些“没什么用”的书：不用做笔记，不用写读后感，甚至不用逼自己看完一整本。</p>
+            <p>可能是一本画风软乎乎的绘本，可能是一本讲美食的散文集，也可能只是翻几页别人的旅行日记。不用逼自己“提升自我”，只是单纯地跟着文字放空，让被专业课填满的脑子歇一歇。</p>
+            <p>原来，不带着功利心去阅读，才是最治愈的。</p>
+
+            <h3>3. 不打卡的散步，才是真正的解压时刻</h3>
+            <p>以前的我，散步也要打开计步器，目标一万步，少一步都觉得亏。现在的我，喜欢在傍晚吃完饭，绕着学校的小路随便走一走。</p>
+            <p>不看步数，不刷手机，就只是走路、吹风，看夕阳把教学楼的影子拉得很长。路边的栀子花开了，风里带着夏天的味道，耳机里放着喜欢的歌。</p>
+            <p>那些上课没听懂的知识点、赶不完的ddl、社团里的小烦恼，好像都被晚风一起吹走了。原来，散步的意义从来都不是打卡，而是让紧绷了一天的神经，慢慢松下来。</p>
+
+            <h3>4. 不用“自律”的周末，才是大学生的自我修复</h3>
+            <p>以前的周末，总想着要把时间填满：学英语、做兼职、赶作业，生怕自己被别人落下。现在的我，会给自己留一个“完全摆烂”的下午。</p>
+            <p>不收拾房间，不强迫自己学习，就窝在宿舍的椅子里，看一部不用动脑子的老电影，或者瘫在床上刷搞笑短视频。不用为了“浪费时间”而愧疚，不用逼自己时刻保持高效。</p>
+            <p>原来，偶尔摆烂，也是一种很重要的自我修复。</p>
+
+            <div class="article-end">
+                其实，松弛感从来都不是“不努力”，而是在认真生活的同时，学会和自己和解。<br><br>
+                不用活成别人眼里的优秀模板，不用逼自己时刻在线，不用为了迎合别人而硬撑。你可以慢慢来，可以犯错，可以喜欢那些别人眼里“没什么用”的东西，可以把平凡的日子，过成自己喜欢的样子。<br><br>
+                毕竟，生活不是一场冲刺，而是一场马拉松。那些看似“浪费”的时间，那些不被定义的瞬间，才是支撑我们走下去的底气呀。
             </div>
         </div>
     </section>
 
-    <!-- 3. 读者投稿区 -->
-    <section class="py-16 px-4 bg-beige bg-opacity-50">
-        <div class="container mx-auto max-w-2xl text-center">
-            <h2 class="text-2xl font-bold text-dark mb-6">分享你的松弛瞬间</h2>
-            <p class="text-gray mb-8">
-                每个人都有自己的松弛方式，欢迎在下方写下你最近get到的松弛感瞬间
-            </p>
-            <form id="shareForm" class="bg-white rounded-2xl p-6 shadow-sm">
-                <textarea 
-                    class="w-full p-4 border border-mint rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-mint"
-                    rows="4"
-                    placeholder="我最近的松弛感瞬间是..."
-                    required
-                    minlength="5"
-                    maxlength="200"></textarea>
-                <button type="submit" class="w-full bg-mint hover:bg-opacity-90 text-dark font-medium px-6 py-3 rounded-full transition-all card-hover">
-                    提交分享
-                </button>
-            </form>
+    <!-- 关于我 -->
+    <section id="about" class="section">
+        <h2 class="section-title">关于我</h2>
+        <div class="about-box">
+            <img src="gzh.jpg" alt="公众号二维码" class="qr-code">
+            <p class="about-text">这里是分享生活的大学生<br>欢迎和我一起解锁日常里的小美好～</p>
         </div>
     </section>
 
-    <!-- 4. 关注公众号区 -->
-    <section class="py-16 px-4">
-        <div class="container mx-auto max-w-md text-center">
-            <h2 class="text-2xl font-bold text-dark mb-6">关注菲不卷</h2>
-            <p class="text-gray mb-8">
-                扫描下方二维码，关注我的微信公众号<br>
-                一起把平凡的日子，过成自己喜欢的样子
-            </p>
-            <div class="bg-white rounded-2xl p-8 shadow-sm mb-6">
-                <!-- 这里替换成你的公众号二维码图片 -->
-                <div class="w-48 h-48 bg-mint bg-opacity-20 mx-auto rounded-lg flex items-center justify-center mb-4 relative">
-                    <img src="gzh.jpg">
-                </div>
-                <p class="text-dark font-medium">微信搜索：菲不卷</p>
-            </div>
-            <a href="#home" class="inline-block text-mint hover:text-dark font-medium">
-                <i class="fa fa-arrow-up mr-2"></i> 返回顶部
-            </a>
-        </div>
-    </section>
-
-    <!-- 5. 页脚 -->
-    <footer class="py-6 px-4 bg-dark text-white text-center text-sm">
-        <p>© 2026 菲不卷 | 生活碎片里的松弛感</p>
-    </footer>
-
-    <!-- 详情模态框（点击卡片弹出） -->
-    <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-4">
-                <h3 id="modalTitle" class="text-xl font-bold text-dark"></h3>
-                <button id="closeModal" class="text-gray hover:text-dark" aria-label="关闭">
-                    <i class="fa fa-times"></i>
-                </button>
-            </div>
-            <div id="modalContent" class="text-gray"></div>
-        </div>
-    </div>
-
-    <!-- JavaScript 交互逻辑 -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 元素获取
-            const navbar = document.getElementById('navbar');
-            const scrollTopBtn = document.getElementById('scrollTop');
-            const detailModal = document.getElementById('detailModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-            const closeModalBtn = document.getElementById('closeModal');
-            const shareForm = document.getElementById('shareForm');
-            const detailButtons = document.querySelectorAll('[data-detail]');
+        // 我的日常 下拉菜单切换
+        const menuDaily = document.getElementById('menu-daily');
+        const submenuDaily = document.getElementById('submenu-daily');
 
-            // 详情模态框数据
-            const details = {
-                morning: {
-                    title: "不设闹钟的早晨",
-                    content: `
-                        <p class="mb-4">以前的我，定好三个闹钟才敢睡，生怕起晚了赶不上早八。但现在，我会在没有课的早上，关掉所有闹钟，让自己睡到自然醒。</p>
-                        <p class="mb-4">醒来不用立刻摸手机，就躺着听一会儿窗外的鸟叫，感受阳光慢慢晒到被子上的温度。</p>
-                        <p class="mb-4">起床后不用急着收拾，先去食堂买一杯热豆浆，或者在宿舍泡一杯速溶咖啡，就坐在窗边慢慢喝。</p>
-                        <p>不用想今天要完成多少任务，不用逼自己立刻进入学习状态，就只是和自己安安静静待一会儿。原来，不被时间追赶的早晨，真的会给一整天都充上电。</p>
-                    `
-                },
-                reading: {
-                    title: "不用\"学到东西\"的阅读",
-                    content: `
-                        <p class="mb-4">以前总觉得，看书必须看专业书、干货文，不然就是在浪费时间。</p>
-                        <p class="mb-4">但这个学期，我开始允许自己看一些"没什么用"的书：不用做笔记，不用写读后感，甚至不用逼自己看完一整本。</p>
-                        <p class="mb-4">可能是一本画风软乎乎的绘本，可能是一本讲美食的散文集，也可能只是翻几页别人的旅行日记。</p>
-                        <p>不用逼自己"提升自我"，只是单纯地跟着文字放空，让被专业课填满的脑子歇一歇。原来，不带着功利心去阅读，才是最治愈的。</p>
-                    `
-                },
-                walk: {
-                    title: "不打卡的散步",
-                    content: `
-                        <p class="mb-4">以前的我，散步也要打开计步器，目标一万步，少一步都觉得亏。</p>
-                        <p class="mb-4">现在的我，喜欢在傍晚吃完饭，绕着学校的小路随便走一走。不看步数，不刷手机，就只是走路、吹风，看夕阳把教学楼的影子拉得很长。</p>
-                        <p class="mb-4">路边的栀子花开了，风里带着夏天的味道，耳机里放着喜欢的歌。</p>
-                        <p>那些上课没听懂的知识点、赶不完的ddl、社团里的小烦恼，好像都被晚风一起吹走了。原来，散步的意义从来都不是打卡，而是让紧绷了一天的神经，慢慢松下来。</p>
-                    `
-                },
-                weekend: {
-                    title: "不用\"自律\"的周末",
-                    content: `
-                        <p class="mb-4">以前的周末，总想着要把时间填满：学英语、做兼职、赶作业，生怕自己被别人落下。</p>
-                        <p class="mb-4">现在的我，会给自己留一个"完全摆烂"的下午。不收拾房间，不强迫自己学习，就窝在宿舍的椅子里，看一部不用动脑子的老电影，或者瘫在床上刷搞笑短视频。</p>
-                        <p>不用为了"浪费时间"而愧疚，不用逼自己时刻保持高效。原来，偶尔摆烂，也是一种很重要的自我修复。</p>
-                    `
+        menuDaily.addEventListener('click', (e) => {
+            e.stopPropagation();
+            submenuDaily.classList.toggle('active');
+        });
+
+        // 点击页面其他地方收起下拉菜单
+        document.addEventListener('click', () => {
+            submenuDaily.classList.remove('active');
+        });
+
+        // 导航栏锚点跳转
+        document.querySelectorAll('[data-target]').forEach(item => {
+            item.addEventListener('click', () => {
+                const targetId = item.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
-            };
-
-            // 导航栏滚动效果
-            function handleScroll() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('bg-cream', 'shadow-sm');
-                    navbar.classList.remove('bg-transparent');
-                } else {
-                    navbar.classList.remove('bg-cream', 'shadow-sm');
-                    navbar.classList.add('bg-transparent');
-                }
-            }
-
-            window.addEventListener('scroll', handleScroll);
-
-            // 返回顶部按钮
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // 显示详情模态框
-            function showDetail(key) {
-                modalTitle.textContent = details[key].title;
-                modalContent.innerHTML = details[key].content;
-                detailModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
-
-            // 关闭模态框
-            function closeModal() {
-                detailModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-
-            // 绑定详情按钮事件
-            detailButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const key = this.getAttribute('data-detail');
-                    showDetail(key);
-                });
-            });
-
-            // 关闭模态框事件
-            closeModalBtn.addEventListener('click', closeModal);
-            detailModal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeModal();
-                }
-            });
-
-            // 表单提交事件
-            shareForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const textarea = this.querySelector('textarea');
-                const content = textarea.value.trim();
-                
-                if (content.length < 5) {
-                    alert('请输入至少5个字符的分享内容');
-                    return;
-                }
-                
-                alert('感谢你的分享！你的松弛瞬间会温暖更多人✨');
-                this.reset();
-            });
-
-            // 页面卸载时清理事件监听器
-            window.addEventListener('beforeunload', function() {
-                window.removeEventListener('scroll', handleScroll);
+                submenuDaily.classList.remove('active');
             });
         });
     </script>
