@@ -517,6 +517,168 @@
                 font-size: 18px !important;
             }
         }
+        /* 用户分享模块 */
+        .share-section {
+            max-width: 900px !important;
+            margin: 40px auto 0 !important;
+            padding: 0 20px !important;
+        }
+
+        .share-box {
+            background: #ffffff !important;
+            border-radius: 24px !important;
+            padding: 50px 40px !important;
+            box-shadow: 0 8px 30px rgba(51,51,51,0.06) !important;
+            border: 1px solid #F5F8F7 !important;
+            text-align: center !important;
+        }
+
+        .share-title {
+            font-size: 32px !important;
+            font-weight: 700 !important;
+            color: #333333 !important;
+            margin-bottom: 20px !important;
+        }
+
+        .share-desc {
+            font-size: 18px !important;
+            color: #666666 !important;
+            line-height: 1.8 !important;
+            margin-bottom: 40px !important;
+        }
+
+        .share-textarea {
+            width: 100% !important;
+            min-height: 220px !important;
+            border: 2px solid #E6F4F1 !important;
+            border-radius: 18px !important;
+            padding: 24px !important;
+            font-size: 16px !important;
+            resize: none !important;
+            outline: none !important;
+            color: #555555 !important;
+            background: #FAFAFA !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .share-textarea:focus {
+            border-color: #B8E0D2 !important;
+            background: #ffffff !important;
+        }
+
+        .share-btn {
+            margin-top: 30px !important;
+            width: 100% !important;
+            height: 64px !important;
+            border: none !important;
+            border-radius: 32px !important;
+            background: #DCEAE7 !important;
+            color: #333333 !important;
+            font-size: 22px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .share-btn:hover {
+            background: #B8E0D2 !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .share-list {
+            margin-top: 30px !important;
+        }
+
+        .share-item {
+            background: #F9FCFB !important;
+            border-left: 4px solid #B8E0D2 !important;
+            padding: 18px 20px !important;
+            margin-bottom: 15px !important;
+            border-radius: 12px !important;
+            text-align: left !important;
+            color: #555555 !important;
+            line-height: 1.8 !important;
+        }
+        /* 用户分享模块 */
+        .share-section {
+            max-width: 900px !important;
+            margin: 40px auto 0 !important;
+            padding: 0 20px !important;
+        }
+
+        .share-box {
+            background: #ffffff !important;
+            border-radius: 24px !important;
+            padding: 50px 40px !important;
+            box-shadow: 0 8px 30px rgba(51,51,51,0.06) !important;
+            border: 1px solid #F5F8F7 !important;
+            text-align: center !important;
+        }
+
+        .share-title {
+            font-size: 32px !important;
+            font-weight: 700 !important;
+            color: #333333 !important;
+            margin-bottom: 20px !important;
+        }
+
+        .share-desc {
+            font-size: 18px !important;
+            color: #666666 !important;
+            line-height: 1.8 !important;
+            margin-bottom: 40px !important;
+        }
+
+        .share-textarea {
+            width: 100% !important;
+            min-height: 220px !important;
+            border: 2px solid #E6F4F1 !important;
+            border-radius: 18px !important;
+            padding: 24px !important;
+            font-size: 16px !important;
+            resize: none !important;
+            outline: none !important;
+            color: #555555 !important;
+            background: #FAFAFA !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .share-textarea:focus {
+            border-color: #B8E0D2 !important;
+            background: #ffffff !important;
+        }
+
+        .share-btn {
+            margin-top: 30px !important;
+            width: 100% !important;
+            height: 64px !important;
+            border: none !important;
+            border-radius: 32px !important;
+            background: #DCEAE7 !important;
+            color: #333333 !important;
+            font-size: 22px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .share-btn:hover {
+            background: #B8E0D2 !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .share-list {
+            margin-top: 30px !important;
+        }
+
+        .share-item {
+            background: #F9FCFB !important;
+            border-left: 4px solid #B8E0D2 !important;
+            padding: 18px 20px !important;
+            margin-bottom: 15px !important;
+            border-radius: 12px !important;
+            text-align: left !important;
+            color: #555555 !important;
+            line-height: 1.8 !important;
+        }
     </style>
 </head>
 <body>
@@ -593,7 +755,29 @@
             <p>分享日常在用的护肤、文具、数码小配件，每一件都是真实使用后的良心推荐。</p>
         </div>
     </section>
+    <!-- 分享你的松弛瞬间 -->
+    <section class="section">
+        <div class="share-box">
+            <h2 class="share-title">分享你的松弛瞬间</h2>
 
+            <p class="share-desc">
+                每个人都有自己的松弛方式，<br>
+                欢迎在下方写下你最近get到的松弛感瞬间
+            </p>
+
+            <textarea
+                id="shareInput"
+                class="share-textarea"
+                placeholder="我最近的松弛感瞬间是..."
+            ></textarea>
+
+            <button id="shareBtn" class="share-btn">
+                提交分享
+            </button>
+
+            <div id="shareList" class="share-list"></div>
+        </div>
+    </section>
     <!-- 往期内容 -->
     <section id="history" class="section">
         <h2 class="section-title">往期内容</h2>
@@ -725,6 +909,31 @@
 
         document.querySelectorAll('.section').forEach(section => {
             observer.observe(section);
+        });
+        // 分享功能
+        const shareBtn = document.getElementById('shareBtn');
+        const shareInput = document.getElementById('shareInput');
+        const shareList = document.getElementById('shareList');
+
+        shareBtn.addEventListener('click', () => {
+
+            const content = shareInput.value.trim();
+
+            if (!content) {
+                alert('请输入内容后再提交');
+                return;
+            }
+
+            const item = document.createElement('div');
+            item.className = 'share-item';
+
+            item.innerHTML = `
+                ✨ ${content}
+            `;
+
+            shareList.prepend(item);
+
+            shareInput.value = '';
         });
     </script>
 </body>
